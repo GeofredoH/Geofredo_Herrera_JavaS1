@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="U1_M1_Summative_Herrera_Geofredo" />
-        <module name="u1_m1_summative_herrera_geofredo" />
+        <module name="U1M3L6PBD-Geofredo-Herrera" />
       </profile>
     </annotationProcessing>
   </component>
