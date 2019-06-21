@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CustomerComposition/CustomerComposition.iml" filepath="$PROJECT_DIR$/CustomerComposition/CustomerComposition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IceCreamClassDesign/IceCreamClassDesign.iml" filepath="$PROJECT_DIR$/IceCreamClassDesign/IceCreamClassDesign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPGInheritance/RPGInheritance.iml" filepath="$PROJECT_DIR$/RPGInheritance/RPGInheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/U1_M2_Summative_Herrera-Geofredo.iml" filepath="$PROJECT_DIR$/.idea/U1_M2_Summative_Herrera-Geofredo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CalculatorObject/calculatorobject.iml" filepath="$PROJECT_DIR$/CalculatorObject/calculatorobject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConverterInterface/converterinterface.iml" filepath="$PROJECT_DIR$/ConverterInterface/converterinterface.iml" />
+    </modules>
+  </component>
+</project>
