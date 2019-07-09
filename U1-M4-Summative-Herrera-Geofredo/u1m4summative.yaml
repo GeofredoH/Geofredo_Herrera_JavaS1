@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: U1M4 Summative
+  description: Summative Project
+  version: 0.0.1
+servers: 
+  - url: 'http://localhost:8080'
+    description: local dev server
+paths:
+  /quote:
+    get:
+      summary: Retrieves quote.
+      description: Randomly returns a Quote object with an author and quote.
+      responses:
+        '200':
+          description: Returns a Quote object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+        '400':
+          description: Quote not found
+  /word:
+    get:
+      summary: Retrieves word and definition.
+      description: Program that randomly returns a WordDef object with a word and definition.
+      responses:
+        '200':
+          description: Returns a random WordDef object. 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordDef'
+        '400':
+          description: WordDef not found.        
+  /magic:
+    post:
+      summary: Takes a Magic8 object.
+      description: Accepts Magic8 object with a question and returns and answer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Magic8'
+      responses:
+        '201':
+          description: Returns a Magic8 object 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Magic8'
+        '422':
+          description: Unprocessable entity.
+components:
+  schemas:
+    Quote:
+      properties:
+        author: 
+          type: string
+        quote: 
+          type: string 
+    WordDef: 
+      properties:
+        word:
+          type: string
+        definition:
+          type: string
+    Magic8:
+      properties:
+        question:
+          type: string
+        answer: 
+          type: string
+      required:
+        - question 
+    
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+   
