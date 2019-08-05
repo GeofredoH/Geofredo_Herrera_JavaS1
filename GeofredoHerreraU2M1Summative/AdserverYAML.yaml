@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: GeofredoHerreraU2M1Summative
+  description: U2M1 Summative Project
+  version: 0.0.1
+servers: 
+  - url: 'http://localhost:7777'
+    description: local dev server
+paths:
+  /ad:
+    get:
+      summary: Retrieves random ad.
+      responses:
+        '200':
+          description: Returns a string with a random advertisement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/String'
+        '404':
+          description: No ad found
+components:
+  schemas:
+    String:
+      properties:
+        ad:
+          type: string

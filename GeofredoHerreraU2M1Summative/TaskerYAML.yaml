@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: GeofredoHerreraU2M1Summative
+  description: U2M1 Summative Project
+  version: 0.0.1
+servers: 
+  - url: 'http://localhost:2727'
+    description: local dev server
+paths:
+  /tasks:
+    post:
+      summary: Creates new task.
+      description: Adds task into the database, auto-generates id, and returns object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Returns a TaskViewModel.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '422':
+          description: Error in request body
+    get:
+      summary: Retrieves all tasks.
+      responses:
+        '200':
+          description: Returns a list of Task objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: No Tasks found
+    put:
+      summary: Update the task with the matching id in the request body.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '204':
+          description: No Content.
+        '422':
+          description: Unprocessable entity      
+  /tasks/{id}:
+    get:
+      summary: Retrieves task by id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Uses id to return task information
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Returns a Task object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: No task found by the id
+    delete:
+      summary: Deletes the entry for the task with the given ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the task you would like to delete.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204':
+          description: Task successfully deleted.
+  /tasks/category/{category}:
+    get:
+      summary: Retrieves task by category.
+      parameters:
+        - name: category
+          in: path
+          required: true
+          description: Uses string to return tasks of a certain category.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list of Task objects with the path variable in the category.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: No task found by the category given
+components:
+  schemas:
+    Task:
+      properties:
+        id: 
+          type: integer
+        description: 
+          type: string
+        createDate:
+          type: object
+        dueDate:
+          type: object
+        category:
+          type: string
+        advertisement:
+          type: string
+      required:
+        - description
+        - createDate
+        - dueDate
+        - category
+  
