@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: GeofredoHerreraU2M2Summative
+  description: U2M2 Summative Project
+  version: 0.0.1
+servers: 
+  - url: 'http://localhost:8889'
+    description: local dev server
+paths:
+  /posts:
+    post:
+      summary: Creates new post view model.
+      description: Adds postand comment into the database, auto-generates id, and returns object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostViewModel'
+      responses:
+        '201':
+          description: Returns a PostViewModel.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '422':
+          description: Error in request body
+  /posts/{id}:
+    get:
+      summary: Retrieves post view model by id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Uses id to return post information
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: Returns a PostViewModel object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '404':
+          description: No Post found by the id
+  /posts/user/{poster_name}:
+    get:
+      summary: Retrieves PostViewModel list by category.
+      parameters:
+        - name: poster_name
+          in: path
+          required: true
+          description: Uses string to return posts of a certain poster_name.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns a list of PostViewModel objects with the path variable in the poster name.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '404':
+          description: No Posts found by the poster name given
+components:
+  schemas:
+    PostViewModel:
+      properties:
+        postId: 
+          type: integer
+        create_date: 
+          type: object
+        posterName:
+          type: string
+        post:
+          type: string
+        comments:
+          type: array
+      required:
+        - posterName
+        - post
+  
